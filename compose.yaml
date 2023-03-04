@@ -1,0 +1,11 @@
+services:
+  fast-api:
+    build:     # this is used to build the services
+      context: . # this is for the where the file is located
+      target: builder #name of the docker image 
+    container_name: fast-api-application # name of the conatiner to be named
+    environment: # this is used to know what environment does the application required to run
+        PORT: 8000 # this is the environment variable or the environment required by the application to run it's services
+    ports: #this is for the ports to be run docker container
+      - "8000:8000"
+    restart: "no" #this is required by the fast api on every restart
